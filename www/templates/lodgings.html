@@ -1,0 +1,23 @@
+<ion-view view-title="Lista de Alojamento">
+<ion-content>
+      <div class="list">
+      <a class="item item-thumbnail-left item-icon-right" ng-href="tel:{{lodging.custom_fields.client_name}}" ng-repeat="lodging in lodgings track by lodging.id">
+        
+        
+        
+        <img ng-src="{{lodging.thumbnail}}" ng-if="lodging.thumbnail.startsWith('http')">
+        
+        <h2 class="lodgingTitle">{{lodging.title}}</h2>
+        <i class="icon ion-ios-telephone"></i>
+         <p><span am-time-ago="lodging.date"></span></p>
+
+    </a>
+    
+    </div>
+     <ion-infinite-scroll ng-if="!noMoreItemsAvailable"
+        on-infinite="loadMoreLodgings()"
+        distance="1%">
+      </ion-infinite-scroll>
+
+      </ion-content>
+    </ion-view>

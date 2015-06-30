@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/moment/moment.js"></script>
+    <script src="lib/angular-moment/angular-moment.js"></script>
+    <script src="lib/moment/locale/pt.js"></script>
+
+    <script>
+      moment.locale('pt');
+    </script>
+    <script src="cordova.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+<body ng-app="app">
+
+    <ion-pane>
+    <!--nav bar-->
+      <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button></ion-nav-back-button>
+      </ion-nav-bar>
+    <!--/nav bar-->
+    <!--tabs-->
+      <ion-tabs class="tabs-icon-top">
+      <ion-tab title="Home" icon="ion-home" href="#/home">
+      <ion-nav-view name="tab-home"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="Resultados" icon="ion-speedometer" href="#/results">
+    <ion-nav-view name="tab-results"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="Info" icon="ion-information" href="#/info">
+    <ion-nav-view name="tab-info"></ion-nav-view>
+    </ion-tab>
+      </ion-tabs>
+    <!--tabs-->
+    </ion-pane>
+  </body>
+</html>

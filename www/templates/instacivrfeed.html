@@ -1,0 +1,27 @@
+<ion-view view-title="#CircuitoVilaReal Fotos!">
+<ion-content>
+<ion-refresher on-refresh="doRefresh()"></ion-refresher>
+<div class="list card" ng-repeat="item in items">
+  <ion-item ng-if="newItems.length > 0" ng-click="doRefresh()">
+  {{newItems.length}} novas fotos!
+  <div class="item item-avatar">
+    <img ng-src="{{item.user.profile_picture}}" ng-if="item.user.profile_picture.startsWith('https')">
+    <h2>{{photo.user.full_name}}</h2>
+    <p><span am-time-ago="item.created_time" am-preprocess="unix"></span></p>
+  </div>
+
+  <div class="item item-body" >
+    <img ng-src="{{item.images.low_resolution.url}}" ng-if="item.images.low_resolution.url.startsWith('https')">
+    <p>
+      {{item.caption.text}}
+    </p>
+    <p>
+      <a href="#" class="subdued">1 Like</a>
+      <a href="#" class="subdued">5 Comments</a>
+    </p>
+  </div>
+
+</div>
+<ion-infinite-scroll on-infinite="loadMore()" distance="5%"></ion-infinite-scroll>
+</ion-content>
+</ion-view>

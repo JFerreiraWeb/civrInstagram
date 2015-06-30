@@ -1,0 +1,23 @@
+h2.mapTitle{
+white-space: normal;
+height:2em;
+
+}
+p.resumo {
+
+	height:3.6em;
+}
+
+h2.newTitle{
+white-space: normal;
+height:2em;
+
+}
+p.newResumo {
+
+	height:3.6em;
+}
+.iframe-wrapper iframe {
+   width: 100%;
+   height: 100%;
+ }

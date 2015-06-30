@@ -1,0 +1,23 @@
+<ion-view view-title="Lista de Restaurantes">
+<ion-content>
+
+      <div class="list">
+      <a class="item item-thumbnail-left item-icon-right" ng-href="tel:{{restaurant.custom_fields.client_name}}" ng-repeat="restaurant in restaurants track by restaurant.id">
+        
+        
+        
+        <img ng-src="{{restaurant.thumbnail}}" ng-if="restaurant.thumbnail.startsWith('http')">
+        
+        <h2 class="lodgingTitle">{{restaurant.title}}</h2>
+        <i class="icon ion-ios-telephone"></i>
+         <p><span am-time-ago="restaurant.date"></span></p>
+
+    </a>
+    
+    </div>
+      <ion-infinite-scroll ng-if="!noMoreItemsAvailable"
+        on-infinite="loadMoreRestaurants()"
+        distance="1%">
+      </ion-infinite-scroll>
+      </ion-content>
+    </ion-view>
