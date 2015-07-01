@@ -3,26 +3,31 @@
 
   var app = angular.module('app', ['ionic','angularMoment'])
 
-  .factory('PersonService', function($http){
-  var BASE_URL = "https://api.instagram.com/v1/tags/circuitovilareal/media/recent?access_token=1368360108.119d058.c88a3bdad63f4c6e923eb96b9db732df";
+  app.factory('PersonService', function($http){
+  var BASE_URL = "https://api.instagram.com/v1/tags/love/media/recent?access_token=1368360108.119d058.c88a3bdad63f4c6e923eb96b9db732df";
   var items = [];
+  var nextUrl = 0;
   
   return {
     GetFeed: function(){
       return $http.get(BASE_URL+'&count=10').then(function(response){
-        items = response.data;
+        items = response.data.data;
+        nextUrl = response.data.pagination.next_url;
+    
         return items;
+        
       });
     },
     GetNewPhotos: function(){
       return $http.get(BASE_URL+'&count=2').then(function(response){
-        items = response.data;
+        items = response.data.data;
+        
         return items;
       });
     },
     GetOldPhotos: function(){
-      return $http.get(BASE_URL+'&count=10').then(function(response){
-        items = response.data;
+      return $http.get(nextUrl).then(function(response){
+        items = response.data.data;
         return items;
       });
     }
