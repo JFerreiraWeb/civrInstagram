@@ -14,9 +14,9 @@
         items = response.data.data;
         nextUrl = response.data.pagination.next_url;
     
-        return items;
-        
-      });
+        return [items, response.data.pagination.next_url];
+
+        });
     },
     GetNewPhotos: function(){
       return $http.get(BASE_URL+'&count=2').then(function(response){
